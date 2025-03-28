@@ -45,13 +45,17 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
+light_mask = 3
+visibility_layer = 13
+z_index = 5
+collision_mask = 3
 script = ExtResource("1_ij6vw")
-anim = NodePath("Sprite2D")
+anim = NodePath("PlayerAnimation")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lhvu3")
 animation = &"idle"
 autoplay = "walk"

@@ -43,17 +43,28 @@ animations = [{
 }]
 
 [node name="Monster" type="Node2D"]
-position = Vector2(540, 207)
+light_mask = 4
+visibility_layer = 5
+z_index = 4
+position = Vector2(0, 8)
 
 [node name="body" type="CharacterBody2D" parent="."]
+light_mask = 4
+visibility_layer = 5
+z_index = 4
 script = ExtResource("1_1cbnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
-z_index = 2
+light_mask = 4
+visibility_layer = 5
+z_index = 4
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1cbnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="body"]
+light_mask = 4
+visibility_layer = 5
+z_index = 4
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ga5te")
 animation = &"test"
