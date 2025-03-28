@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster_movements.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://bjnnkwiuxoqxb" path="res://textures/sprite/enemy_test.png" id="1_uwnm8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1cbnp"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cbnp"]
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrqeg"]
 atlas = ExtResource("1_uwnm8")
@@ -49,8 +49,9 @@ position = Vector2(540, 207)
 script = ExtResource("1_1cbnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
+z_index = 2
 position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_1cbnp")
+shape = SubResource("RectangleShape2D_1cbnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="body"]
 position = Vector2(0, -8)
