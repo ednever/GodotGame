@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Adjust these values as needed
-var speed = 100
+var speed = 50
 var change_direction_time = 2.0
 var timer = 0.0
 var direction = Vector2.ZERO

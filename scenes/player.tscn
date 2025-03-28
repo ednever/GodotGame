@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmgqbj615sa16"]
 
-[ext_resource type="Script" uid="uid://c5pk610r2ijhu" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://db26wb3hq71a8" path="res://textures/sprite/Sprite-0004.png" id="2_ij6vw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
@@ -48,6 +48,7 @@ animations = [{
 script = ExtResource("1_ij6vw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+z_index = 5
 polygon = PackedVector2Array(0, -8, 8, 8, -8, 8)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

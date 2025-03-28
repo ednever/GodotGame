@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://o68o375akbbv"]
+
+[ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://scenes/player.tscn" id="1_uissp"]
+[ext_resource type="PackedScene" uid="uid://b2asmsas5kjbh" path="res://scenes/monster.tscn" id="2_reqef"]
+[ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://scenes/walls.tscn" id="3_reqef"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(108, 68)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_uissp")]
+position = Vector2(276, 241)
+
+[node name="monster" parent="." instance=ExtResource("2_reqef")]
+position = Vector2(273, 151)
+
+[node name="walls" parent="." instance=ExtResource("3_reqef")]
+position = Vector2(83, -73)
