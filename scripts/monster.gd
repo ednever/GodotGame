@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+var world_state: bool
+
+# Получает состояние мира. True - Darkness, False - Silence
+func take_world_state(state: bool):
+	world_state = !state
+
 # Adjust these values as needed
 var speed = 5000
 var change_direction_time = 2.0
@@ -9,6 +15,7 @@ var direction = Vector2.ZERO
 func _ready():
 	randomize()
 	_choose_new_direction()
+	SignalBus.connect("respond_world_state", take_world_state)
 
 func _physics_process(delta):
 	timer -= delta

@@ -1,5 +1,4 @@
 extends Node
 
-signal request_world_state(state: int)
-signal respond_world_state(state: String)
+signal respond_world_state(state: bool)
 signal change_world_state(state: int)
