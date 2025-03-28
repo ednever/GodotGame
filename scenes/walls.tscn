@@ -13,7 +13,7 @@ distance = 1.0
 normal = Vector2(-1, 0)
 distance = 1.0
 
-[node name="walls" type="Node2D"]
+[node name="Walls" type="Node2D"]
 position = Vector2(193, -1)
 
 [node name="top2D" type="StaticBody2D" parent="."]

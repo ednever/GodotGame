@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b2asmsas5kjbh"]
 
-[ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster_movements.gd" id="1_1cbnp"]
+[ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://bjnnkwiuxoqxb" path="res://textures/sprite/enemy_test.png" id="1_uwnm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cbnp"]
@@ -42,7 +42,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="monster" type="Node2D"]
+[node name="Monster" type="Node2D"]
 position = Vector2(540, 207)
 
 [node name="body" type="CharacterBody2D" parent="."]
