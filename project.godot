@@ -15,6 +15,9 @@ run/main_scene="uid://o68o375akbbv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+SignalBus="*res://Game_Manager/signal_bus.gd"
+
 [display]
 
 window/size/viewport_width=720
