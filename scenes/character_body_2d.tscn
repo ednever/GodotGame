@@ -48,7 +48,6 @@ animations = [{
 script = ExtResource("1_ij6vw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-z_index = 5
 polygon = PackedVector2Array(0, -8, 8, 8, -8, 8)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
