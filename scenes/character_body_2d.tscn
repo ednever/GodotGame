@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="HeroMovement" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_ij6vw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

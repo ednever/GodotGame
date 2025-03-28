@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://corw1osl4xb1g"]
+
+[ext_resource type="Texture2D" uid="uid://n6wqw7co8vsc" path="res://texture/sprite/key.png" id="2_wy8tx"]
+
+[sub_resource type="GDScript" id="GDScript_ucgph"]
+script/source = "# Key.gd
+extends Node2D
+
+# Определяем класс с именем \"Key\"
+class_name Key
+
+# Свойства ключа
+var key_name: String = \"Rusty Key\"
+var is_picked_up: bool = false
+var key_id: int = 1
+
+@onready var sprite = $Sprite2D
+
+# Конструктор (опционально, если нужно что-то инициализировать)
+
+func _init(name: String = \"Default Key\", id: int = 0):
+	key_name = name
+	key_id = id
+
+
+# Функция для \"поднятия\" ключа
+func pick_up() -> void:
+	if not is_picked_up:
+		is_picked_up = true
+		print(\"Key '\" + key_name + \"' подобран!\")
+		hide()
+# Функция для проверки статуса
+func get_status() -> String:
+	return \"Key: \" + key_name + \", Статус: \" + (\"Подобран\" if is_picked_up else \"На месте\")
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"CharacterBody2D\"):  # Предполагаем, что игрок в группе \"player\"
+		pick_up()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0yg6"]
+size = Vector2(235, 111)
+
+[node name="Key" type="Node2D"]
+script = SubResource("GDScript_ucgph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(112, 48)
+texture = ExtResource("2_wy8tx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(107.5, 45.5)
+shape = SubResource("RectangleShape2D_p0yg6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

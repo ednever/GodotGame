@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5hvtytrsmgxa"]
 
 [ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://scenes/character_body_2d.tscn" id="1_6e84v"]
-[ext_resource type="PackedScene" uid="uid://corw1osl4xb1g" path="res://scenes/key.tscn" id="2_4dvvg"]
+[ext_resource type="PackedScene" uid="uid://dgpsa2tnin5a4" path="res://scenes/key.tscn" id="2_4dvvg"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_6e84v")]
 position = Vector2(276, 241)
 
-[node name="Key" parent="." instance=ExtResource("2_4dvvg")]
-position = Vector2(185.498, 154.295)
-scale = Vector2(0.1, 0.1)
+[node name="key" parent="." instance=ExtResource("2_4dvvg")]
+position = Vector2(205, 152)
+
+[connection signal="body_entered" from="key" to="CharacterBody2D" method="_on_key_body_entered"]
