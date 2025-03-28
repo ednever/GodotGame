@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Adjust these values as needed
-var speed = 50
+var speed = 5000
 var change_direction_time = 2.0
 var timer = 0.0
 var direction = Vector2.ZERO
@@ -14,7 +14,7 @@ func _physics_process(delta):
 	timer -= delta
 	if timer <= 0:
 		_choose_new_direction()
-	velocity = direction * speed
+	velocity = direction * speed * delta
 	move_and_slide()  # No argument needed in Godot 4
 
 func _choose_new_direction():
