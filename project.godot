@@ -16,7 +16,8 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
-SignalBus="*res://Game_Manager/signal_bus.gd"
+
+SignalBus="*res://scripts/game_rules/signal_bus.gd"
 
 [display]
 
