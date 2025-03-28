@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b2asmsas5kjbh"]
 
-[ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster_movements.gd" id="1_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://bjnnkwiuxoqxb" path="res://textures/enemy_test.png" id="1_uwnm8"]
+[ext_resource type="Script" path="res://scripts/monster_movements.gd" id="1_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://bjnnkwiuxoqxb" path="res://textures/sprite/enemy_test.png" id="1_uwnm8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1cbnp"]
 radius = 9.0
@@ -43,6 +43,7 @@ animations = [{
 }]
 
 [node name="monster" type="Node2D"]
+position = Vector2(540, 207)
 
 [node name="body" type="CharacterBody2D" parent="."]
 script = ExtResource("1_1cbnp")
