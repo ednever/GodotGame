@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c5pk610r2ijhu" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://db26wb3hq71a8" path="res://textures/sprite/Sprite-0004.png" id="2_ij6vw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2brh"]
 atlas = ExtResource("2_ij6vw")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44cfe"]
 atlas = ExtResource("2_ij6vw")
@@ -23,7 +23,7 @@ region = Rect2(32, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghijl")
+"texture": SubResource("AtlasTexture_g2brh")
 }],
 "loop": true,
 "name": &"idle",
@@ -40,17 +40,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_lhvu3")
 }],
 "loop": true,
-"name": &"movement",
+"name": &"walk",
 "speed": 5.0
 }]
 
-[node name="HeroMovement" type="CharacterBody2D"]
+[node name="HeroMovement" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
 script = ExtResource("1_ij6vw")
+anim = NodePath("Sprite2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -8, 8, 8, -8, 8)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lhvu3")
-animation = &"movement"
-autoplay = "movement"
+animation = &"idle"
+autoplay = "walk"
