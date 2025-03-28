@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b2asmsas5kjbh" path="res://scenes/monster.tscn" id="2_rnjyy"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(108, 68)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_6e84v")]
 position = Vector2(276, 241)
