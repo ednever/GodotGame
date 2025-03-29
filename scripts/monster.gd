@@ -45,6 +45,7 @@ func _on_timer_timeout() -> void:
 		$Timer.start()
 
 func animate():
+
 	# If no movement, you can choose an idle animation or simply do nothing
 	if direction == Vector2.ZERO:
 		anim.play("idle")
