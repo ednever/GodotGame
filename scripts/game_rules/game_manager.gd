@@ -20,6 +20,7 @@ var  state = 0:
 var timer_wait_time_for_state_change: float = 5
 var player_position: Vector2
 var monster_position: Vector2
+var keys: int
 
 # В начале игры:
 # Устанавливается таймер
@@ -30,6 +31,7 @@ func _ready() -> void:
 	SignalBus.connect("change_world_state", change_state)
 	SignalBus.connect("respond_player_posiiton", update_player_position)
 	SignalBus.connect("respond_monster_posiiton", update_monster_position)
+	SignalBus.connect("key_was_taken", take_keys)
 
 # Меняет состояния мира на противоположные
 func change_state():
@@ -69,3 +71,8 @@ func vector_counter() -> void:
 		# Создание нового вектора возле позиции игрока с учетом погрешности
 		var random_position_for_monster = player_position + random_offset   
 		SignalBus.emit_signal("respond_random_position_for_monster", random_position_for_monster)
+
+# Подбор ключей
+func take_keys():
+	keys += 1
+	print(keys)
