@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @export var anim: AnimatedSprite2D
 
-const SPEED = 10000
-const RUN = 20000
-const SNEAK = 5000
+const SPEED = 4000
+const RUN = 5000
+const SNEAK = 2000
 var last_direction = 1  # Default to facing right (1 for right, -1 for left)
 
 var self_pos: Vector2
@@ -49,7 +49,7 @@ func _physics_process(delta):
 			anim.play("walk")
 		
 		# Keep character facing last movement direction
-		anim.flip_h = last_direction < 0  
+		anim.flip_h = last_direction > 0  
 
 	velocity = direction.normalized() * speed * delta
 	move_and_slide()
