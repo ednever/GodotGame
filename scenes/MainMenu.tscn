@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4p4j5y83m5pv"]
+
+[ext_resource type="Script" uid="uid://cvn365blftlg0" path="res://scripts/mainMenu.gd" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://dik40w20vmyxs" path="res://textures/sprite/city.jpg" id="2_0ykhv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykhv"]
+bg_color = Color(1, 0, 0, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow34m"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l72w3"]
+bg_color = Color(1, 0, 0, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh52"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 39.0
+offset_bottom = 44.0
+script = ExtResource("1_yqorp")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0ykhv")
+
+[node name="Play" type="Button" parent="."]
+z_index = 2
+layout_mode = 2
+offset_left = 275.0
+offset_top = 150.0
+offset_right = 475.0
+offset_bottom = 200.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ykhv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ow34m")
+text = "New Game"
+
+[node name="Exit" type="Button" parent="."]
+z_index = 2
+layout_mode = 2
+offset_left = 275.0
+offset_top = 216.0
+offset_right = 475.0
+offset_bottom = 266.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_l72w3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2wh52")
+text = "Exit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

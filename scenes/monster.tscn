@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://hf4uhs4vteee"]
+
+[ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster.gd" id="1_4pflp"]
+[ext_resource type="Texture2D" uid="uid://d2ecekbl1o1r0" path="res://textures/sprite/monster_sprite.png" id="2_i44lo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pflp"]
+size = Vector2(10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyvb2"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujuxu"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyu0s"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ks7b"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_siuip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyvb2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujuxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyu0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ks7b")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="monster" type="CharacterBody2D" node_paths=PackedStringArray("anim") groups=["monster"]]
+light_mask = 4
+visibility_layer = 15
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_4pflp")
+anim = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4pflp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_siuip")
+animation = &"walk"
+autoplay = "walk"
