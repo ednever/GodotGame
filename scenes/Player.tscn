@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmgqbj615sa16"]
+[gd_scene load_steps=16 format=3 uid="uid://bmgqbj615sa16"]
 
 [ext_resource type="Script" uid="uid://c5pk610r2ijhu" path="res://scripts/player.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://d2jgq2orbqdc2" path="res://textures/sprite/player_sprite.png" id="2_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://5av5o3c6c6lm" path="res://textures/sprite/collectables.png" id="3_3li8b"]
+[ext_resource type="AudioStream" uid="uid://dp4ivu2i0hkih" path="res://sounds/mixkit-game-ball-tap-2073.wav" id="4_mdl7e"]
+[ext_resource type="AudioStream" uid="uid://cqirsicwqgjsv" path="res://sounds/video-game-coin-pickup-sfx-319169.mp3" id="5_qu4a1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_kyqiw")
@@ -80,7 +82,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim", "camera")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim", "camera", "audio", "audio_key")]
 light_mask = 3
 visibility_layer = 13
 z_index = 5
@@ -89,6 +91,8 @@ collision_mask = 15
 script = ExtResource("1_ij6vw")
 anim = NodePath("PlayerAnimation")
 camera = NodePath("Camera2D")
+audio = NodePath("AudioStreamPlayer2D")
+audio_key = NodePath("AudioStreamPlayer2DKEY")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_52ee3")
@@ -148,5 +152,12 @@ position = Vector2(214, 33)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_qu4a1")
 animation = &"Coin"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mdl7e")
+bus = &"Effects"
+
+[node name="AudioStreamPlayer2DKEY" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qu4a1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

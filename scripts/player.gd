@@ -1,6 +1,8 @@
 extends CharacterBody2D
 @export var anim: AnimatedSprite2D
 @export var camera: Camera2D
+@export var audio: AudioStreamPlayer2D
+@export var audio_key: AudioStreamPlayer2D
 
 const SPEED = 4000
 const RUN = 6000
@@ -11,6 +13,7 @@ var coins = 0
 var self_pos: Vector2
 var world_state: bool
 var timer_wait_time: float = 2
+var audio_check: bool
 
 func _ready() -> void:	
 	$Timer.wait_time = timer_wait_time
@@ -18,6 +21,8 @@ func _ready() -> void:
 	SignalBus.connect("respond_world_state", take_world_state)
 	self_pos = global_position
 	SignalBus.connect("key_was_taken", take_coin)
+	$TimerForMusic.start()
+	$TimerForMusic.wait_time = 0.4
 	
 	var coins_parent = $CanvasLayer/HBoxContainer
 	for child in coins_parent.get_children():
@@ -25,6 +30,7 @@ func _ready() -> void:
 
 func take_coin():	
 	coins_list[coins].play("Active coin")	
+	audio_key.play()
 	coins += 1
 
 func _on_timer_timeout() -> void:
@@ -45,6 +51,9 @@ func take_world_state(state: bool):
 func _physics_process(delta):
 	var speed = SPEED
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	if world_state:
+		audio.position = global_position
+		audio_check = false
 	
 	if Input.is_action_pressed("Run"):
 		speed = RUN
@@ -52,6 +61,8 @@ func _physics_process(delta):
 		speed = SNEAK
 	elif direction != Vector2.ZERO:
 		self_pos = global_position
+		audio_check = true
+	
 	
 	if direction.x != 0:
 		last_direction = direction.x  # Store last horizontal movement direction
@@ -74,3 +85,8 @@ func _on_Area2D_body_entered(body):
 
 func death():
 	SignalBus.emit_signal("player_on_dead")
+
+
+func _on_timer_for_music_timeout() -> void:
+	if world_state && audio_check:
+		audio.play()
