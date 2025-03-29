@@ -8,3 +8,5 @@ signal respond_monster_posiiton(position: Vector2)
 signal respond_random_position_for_monster(position: Vector2)
 
 signal key_was_taken()
+
+signal player_on_dead()
