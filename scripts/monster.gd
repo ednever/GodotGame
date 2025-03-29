@@ -1,6 +1,7 @@
 extends CharacterBody2D
+@export var anim: AnimatedSprite2D
 
-var world_state: bool
+var world_state: bool = true
 
 # Получает состояние мира. True - Silence, False - Darkness
 func take_world_state(state: bool):
@@ -13,6 +14,7 @@ var speed = 5000
 var change_direction_time = 2.0
 var timer = 0.0
 var direction = Vector2.ZERO
+var last_direction = 1
 # Таймер для обновления координат игрока для монстра
 var timer_wait_time: float = 1
 
@@ -41,15 +43,33 @@ func _on_timer_timeout() -> void:
 		SignalBus.emit_signal("respond_monster_posiiton", global_position)
 		$Timer.start()
 
-func _physics_process(delta):
+func animate():
+	if direction.x > 0:
+		last_direction = 1
+	elif direction.x < 0:
+		last_direction = -1
+
+	if anim:
+		if direction == Vector2.ZERO:
+			anim.play("idle")
+		else:
+			anim.play("walk")
+	
+		anim.flip_h = last_direction < 0
+	
+
+func _physics_process(delta):	
 	if world_state:
 		timer -= delta
 		if timer <= 0:
 			_choose_new_direction()
+			
 		velocity = direction * speed * delta
 		move_and_slide()  # No argument needed in Godot 4
 	if !world_state:
 		move_towards_target(delta)
+
+	animate()  # Upload the animation
 
 func _choose_new_direction():
 	# Pick a random angle between 0 and 360 degrees using deg_to_rad()
