@@ -58,5 +58,5 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lhvu3")
-animation = &"idle"
+animation = &"walk"
 autoplay = "walk"
