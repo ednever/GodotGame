@@ -1,7 +1,8 @@
 extends CharacterBody2D
 @export var anim: AnimatedSprite2D
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
 
-var world_state: bool = true
+var world_state: bool
 
 # Получает состояние мира. True - Silence, False - Darkness
 func take_world_state(state: bool):
@@ -34,7 +35,8 @@ func _ready():
 
 
 func move_towards_target(delta: float):
-	direction = (player_position_with_random - global_position).normalized()
+	nav.target_position = player_position_with_random
+	direction = (nav.get_next_path_position() - global_position).normalized()
 	velocity = direction * speed * delta
 	move_and_slide()
 
@@ -44,6 +46,7 @@ func _on_timer_timeout() -> void:
 		$Timer.start()
 
 func animate():
+	print(direction.x, world_state)
 	if direction.x > 0:
 		last_direction = 1
 	elif direction.x < 0:
@@ -58,7 +61,10 @@ func animate():
 		anim.flip_h = last_direction < 0
 	
 
-func _physics_process(delta):	
+func _physics_process(delta):
+	
+	animate()  # Upload the animation
+		
 	if world_state:
 		timer -= delta
 		if timer <= 0:
@@ -68,8 +74,6 @@ func _physics_process(delta):
 		move_and_slide()  # No argument needed in Godot 4
 	if !world_state:
 		move_towards_target(delta)
-
-	animate()  # Upload the animation
 
 func _choose_new_direction():
 	# Pick a random angle between 0 and 360 degrees using deg_to_rad()

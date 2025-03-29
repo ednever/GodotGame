@@ -1,32 +1,32 @@
 [gd_scene load_steps=9 format=3 uid="uid://hf4uhs4vteee"]
 
 [ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster.gd" id="1_4pflp"]
-[ext_resource type="Texture2D" uid="uid://ce7im2tr005ja" path="res://textures/sprite/enemy_sprite_test.png" id="1_l0pkb"]
+[ext_resource type="Texture2D" uid="uid://d2ecekbl1o1r0" path="res://textures/sprite/monster_sprite.png" id="2_i44lo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pflp"]
 size = Vector2(10, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pflp"]
-atlas = ExtResource("1_l0pkb")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyvb2"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1xfhi"]
-atlas = ExtResource("1_l0pkb")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujuxu"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(0, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ffef"]
-atlas = ExtResource("1_l0pkb")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyu0s"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x14pa"]
-atlas = ExtResource("1_l0pkb")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ks7b"]
+atlas = ExtResource("2_i44lo")
+region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_siuip"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4pflp")
+"texture": SubResource("AtlasTexture_hyvb2")
 }],
 "loop": true,
 "name": &"idle",
@@ -34,13 +34,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1xfhi")
+"texture": SubResource("AtlasTexture_ujuxu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ffef")
+"texture": SubResource("AtlasTexture_cyu0s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x14pa")
+"texture": SubResource("AtlasTexture_6ks7b")
 }],
 "loop": true,
 "name": &"walk",

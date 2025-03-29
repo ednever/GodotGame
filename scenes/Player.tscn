@@ -70,6 +70,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_kyqiw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 zoom = Vector2(4, 4)
 
 [node name="Area2D" type="Area2D" parent="."]
