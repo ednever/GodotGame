@@ -1,14 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://o68o375akbbv"]
 
-
 [ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://scenes/Player.tscn" id="1_0bbpv"]
-[ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://scenes/Walls.tscn" id="3_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://scenes/walls.tscn" id="3_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://b6p5lkmkuia1f" path="res://scenes/Key.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://hf4uhs4vteee" path="res://scenes/monster.tscn" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://c6mdkkepfcmxl" path="res://scripts/game_rules/game_manager.gd" id="5_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://cvylwmo65rbdu" path="res://Scenes/tilemap.tscn" id="6_v1gob"]
-[ext_resource type="PackedScene" uid="uid://mkoe2ines0ya" path="res://Scenes/background.tscn" id="7_jw32o"]
-
+[ext_resource type="PackedScene" uid="uid://cvylwmo65rbdu" path="res://scenes/tilemap.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://mkoe2ines0ya" path="res://scenes/background.tscn" id="7_jw32o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c01mt"]
 vertices = PackedVector2Array(-22, 194, -34, 194, -34, 182, -22, 182, -86, 326, 90, 230, 362, 214, 394, 214, 590, 326, -2, -10, -2, -42, 14, -46, 14, 86, -86, -46, -74.1406, -42, 590, -45.1406, 526, 214, 526, 82, 30, 230, 202, 66, 202, 166, 186, 150, 186, 34, 30, 157.859, 10, 218.141, 10, 157.859, -82, -34.1406, -82, 38, 462, -46, 514.891, -46, 494, 82, 462, 70, 2.14063, 226, -58.1406, 226, 90, 157.859, 74, 86, 74, -46, 106, -46, 106, 22, 206, 22, 206, -46, 250, -46, 250, 66, 154, 34, 154, 150, 142, 150, 142, 34, 110, 34, 110, 150, 82.1406, 150, -2, 130, -2, 98, -50, 98, -50, 50, 494, 214, 490, 214, 490, 82, 458, 82, 334, 70, -50, 38, -50, -10, -82, 50, -82, 122.141, -66, 218.141, -74.1406, 130, -66, 157.859, -58.1406, 150, 2.14063, 150, 458, 214, 446, 214, 446, 98, 414, 98, 37.8594, 150, 414, 214, 394, 98, 362, 98, 334, 166)
@@ -21,9 +19,7 @@ source_geometry_group_name = &"navigation"
 position = Vector2(108, 68)
 
 [node name="background" parent="." instance=ExtResource("7_jw32o")]
-
 z_index = -1
-
 position = Vector2(-108, -68)
 
 [node name="monster" parent="." instance=ExtResource("5_pbw6q")]

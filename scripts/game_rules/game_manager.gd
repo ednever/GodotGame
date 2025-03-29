@@ -45,11 +45,11 @@ func _ready() -> void:
 # Меняет состояния мира на противоположные
 func change_state():
 	if state == 0:	
-		color_rect.visible = true
+		color_rect.visible = false
 
 		state = 1
 	else:
-		color_rect.visible = false
+		color_rect.visible = true
 		state = 0
 	
 # Когда таймер заканчивается, состояние мира меняется, таймер начинается заново

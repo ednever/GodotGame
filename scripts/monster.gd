@@ -6,9 +6,11 @@ var world_state: bool
 
 # Получает состояние мира. True - Silence, False - Darkness
 func take_world_state(state: bool):
-	world_state = state
+	world_state = !state
 	if !world_state:
 		$Timer.start()
+	else:
+		$Timer.stop()
 
 # Adjust these values as needed
 var speed = 5000
