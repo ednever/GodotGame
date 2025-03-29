@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://o68o375akbbv"]
+[gd_scene load_steps=8 format=3 uid="uid://o68o375akbbv"]
 
 [ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://Scenes/Player.tscn" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://Scenes/walls.tscn" id="3_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://b6p5lkmkuia1f" path="res://Scenes/key.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://hf4uhs4vteee" path="res://Scenes/monster.tscn" id="5_pbw6q"]
+
 [ext_resource type="Script" uid="uid://c6mdkkepfcmxl" path="res://scripts/game_rules/game_manager.gd" id="5_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://cvylwmo65rbdu" path="res://Scenes/tilemap.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://cvylwmo65rbdu" path="res://scenes/tilemap.tscn" id="6_v1gob"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c01mt"]
+vertices = PackedVector2Array(-22, 194, -34, 194, -34, 182, -22, 182, -86, 326, 90, 230, 362, 214, 394, 214, 590, 326, -2, -10, -2, -42, 14, -46, 14, 86, -86, -46, -74.1406, -42, 590, -45.1406, 526, 214, 526, 82, 30, 230, 202, 66, 202, 166, 186, 150, 186, 34, 30, 157.859, 10, 218.141, 10, 157.859, -82, -34.1406, -82, 38, 462, -46, 514.891, -46, 494, 82, 462, 70, 2.14063, 226, -58.1406, 226, 90, 157.859, 74, 86, 74, -46, 106, -46, 106, 22, 206, 22, 206, -46, 250, -46, 250, 66, 154, 34, 154, 150, 142, 150, 142, 34, 110, 34, 110, 150, 82.1406, 150, -2, 130, -2, 98, -50, 98, -50, 50, 494, 214, 490, 214, 490, 82, 458, 82, 334, 70, -50, 38, -50, -10, -82, 50, -82, 122.141, -66, 218.141, -74.1406, 130, -66, 157.859, -58.1406, 150, 2.14063, 150, 458, 214, 446, 214, 446, 98, 414, 98, 37.8594, 150, 414, 214, 394, 98, 362, 98, 334, 166)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 11, 10, 14), PackedInt32Array(15, 8, 16, 17), PackedInt32Array(18, 5, 4), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(23, 18, 24, 25), PackedInt32Array(13, 14, 26), PackedInt32Array(4, 13, 26, 27), PackedInt32Array(28, 29, 15, 17, 30, 31), PackedInt32Array(24, 18, 4, 32), PackedInt32Array(33, 32, 4), PackedInt32Array(6, 5, 34, 20), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(39, 42, 19, 22), PackedInt32Array(38, 39, 22, 43), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(38, 43, 46), PackedInt32Array(38, 46, 47), PackedInt32Array(35, 38, 47, 48), PackedInt32Array(12, 35, 48, 49, 50, 51), PackedInt32Array(51, 52, 53), PackedInt32Array(30, 54, 55, 56), PackedInt32Array(31, 30, 56), PackedInt32Array(31, 56, 57, 58), PackedInt32Array(59, 60, 9, 12, 51), PackedInt32Array(59, 51, 53), PackedInt32Array(59, 53, 61, 27), PackedInt32Array(4, 27, 61), PackedInt32Array(4, 61, 62), PackedInt32Array(63, 4, 62, 64, 65), PackedInt32Array(63, 33, 4), PackedInt32Array(66, 65, 64), PackedInt32Array(66, 64, 50, 67), PackedInt32Array(54, 16, 8), PackedInt32Array(55, 54, 8), PackedInt32Array(68, 55, 8), PackedInt32Array(68, 8, 69), PackedInt32Array(57, 68, 69, 70), PackedInt32Array(58, 57, 70, 71), PackedInt32Array(44, 21, 20, 34), PackedInt32Array(72, 23, 25, 67, 50), PackedInt32Array(73, 69, 8), PackedInt32Array(73, 8, 7), PackedInt32Array(71, 73, 7, 74), PackedInt32Array(58, 71, 74), PackedInt32Array(58, 74, 75), PackedInt32Array(76, 58, 75, 6), PackedInt32Array(20, 76, 6), PackedInt32Array(45, 44, 34), PackedInt32Array(48, 45, 34), PackedInt32Array(48, 34, 49), PackedInt32Array(72, 50, 49)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-101, -63, -100, 341, 607, 342, 603, -55)])
+source_geometry_mode = 1
+source_geometry_group_name = &"navigation"
 
 [node name="Main" type="Node2D"]
 position = Vector2(108, 68)
@@ -14,6 +22,8 @@ position = Vector2(108, 68)
 position = Vector2(148, 101)
 
 [node name="Timer" type="Timer" parent="monster"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="monster"]
 
 [node name="walls" parent="." instance=ExtResource("3_vcsgt")]
 position = Vector2(83, -73)
@@ -49,8 +59,8 @@ timer_to_change_world_state = NodePath("Timer")
 [node name="Tilemap" parent="." instance=ExtResource("6_v1gob")]
 position = Vector2(-108, -68)
 
-[node name="Tilemap2" parent="." instance=ExtResource("6_v1gob")]
-position = Vector2(-108, -68)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_c01mt")
 
 [connection signal="timeout" from="monster/Timer" to="monster" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
