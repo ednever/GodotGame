@@ -23,7 +23,6 @@ var player_position_with_random: Vector2
 
 func update_player_position(position):
 	player_position_with_random = position
-	print("Pos with rand: ", player_position_with_random)
 
 func _ready():
 	randomize()
@@ -46,18 +45,25 @@ func _on_timer_timeout() -> void:
 		$Timer.start()
 
 func animate():
-	if direction.x > 0:
-		last_direction = 1
-	elif direction.x < 0:
-		last_direction = -1
 
-	if anim:
-		if direction == Vector2.ZERO:
-			anim.play("idle")
+	# If no movement, you can choose an idle animation or simply do nothing
+	if direction == Vector2.ZERO:
+		anim.play("idle")
+		return
+
+		# Determine whether horizontal or vertical movement is dominant.
+	if abs(direction.x) > abs(direction.y):
+		# Horizontal movement is stronger.
+		if direction.x > 0:
+			anim.play("walk_right")
 		else:
-			anim.play("walk")
-	
-		anim.flip_h = last_direction < 0
+			anim.play("walk_left")
+	else:
+		# Vertical movement is stronger.
+		if direction.y > 0:
+			anim.play("walk_down")
+		else:
+			anim.play("walk_up")
 	
 
 func _physics_process(delta):

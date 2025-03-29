@@ -53,11 +53,21 @@ light_mask = 15
 visibility_layer = 15
 position = Vector2(341, -12)
 
-[node name="Game_manager" type="Node" parent="." node_paths=PackedStringArray("timer_to_change_world_state")]
+[node name="Game_manager" type="Node" parent="." node_paths=PackedStringArray("color_rect", "timer_to_change_world_state")]
 script = ExtResource("5_vcsgt")
+color_rect = NodePath("Black")
 timer_to_change_world_state = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Game_manager"]
+
+[node name="Black" type="ColorRect" parent="Game_manager"]
+visible = false
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 708.0
+offset_bottom = 433.0
+scale = Vector2(0.998555, 0.925659)
+color = Color(0, 0, 0, 1)
 
 [node name="Tilemap" parent="." instance=ExtResource("6_v1gob")]
 position = Vector2(-108, -68)
