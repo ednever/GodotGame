@@ -17,4 +17,3 @@ func getCamera():
 	var camera = get_tree().get_first_node_in_group("Camera")
 
 signal player_on_dead()
-

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2u5yju41gpqm"]
 
-[ext_resource type="Script" uid="uid://b4w8a084j1ccf" path="res://death_screen.gd" id="1_8hps1"]
+[ext_resource type="Script" uid="uid://b4w8a084j1ccf" path="res://scripts/death_screen.gd" id="1_8hps1"]
 
 [node name="Death_screen" type="Control" node_paths=PackedStringArray("lable", "timer", "col")]
 custom_minimum_size = Vector2(720, 420)
