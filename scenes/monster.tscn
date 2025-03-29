@@ -47,7 +47,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="monster" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
+[node name="monster" type="CharacterBody2D" node_paths=PackedStringArray("anim") groups=["monster"]]
 light_mask = 4
 visibility_layer = 15
 collision_layer = 4

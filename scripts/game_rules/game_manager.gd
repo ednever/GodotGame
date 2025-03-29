@@ -33,6 +33,7 @@ func _ready() -> void:
 	SignalBus.connect("respond_player_posiiton", update_player_position)
 	SignalBus.connect("respond_monster_posiiton", update_monster_position)
 	SignalBus.connect("key_was_taken", take_keys)
+	SignalBus.connect("player_on_dead", death)
 
 # Меняет состояния мира на противоположные
 func change_state():
@@ -77,3 +78,7 @@ func vector_counter() -> void:
 func take_keys():
 	keys += 1
 	print(keys)
+	
+func death():
+	print("Player Died!")
+	queue_free()
