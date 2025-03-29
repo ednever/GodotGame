@@ -33,7 +33,8 @@ func _ready():
 
 func move_towards_target(delta: float):
 	var direction = (player_position_with_random - global_position).normalized()
-
+	velocity = direction * speed * delta
+	move_and_slide()
 
 func _on_timer_timeout() -> void:
 	if !world_state:
