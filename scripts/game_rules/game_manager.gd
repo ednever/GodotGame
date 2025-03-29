@@ -88,8 +88,10 @@ func take_keys():
 	keys += 1
 	print(keys, " out of 5")
 	if keys == 5:
-		print("Player Win!")
+		#SignalBus.emit_signal("game_ending", true)
+		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 
 func death():
-	print("Player Died!")
+	#SignalBus.emit_signal("game_ending", false)
+	get_tree().change_scene_to_file("res://scenes/death_screen.tscn") 
 	queue_free()

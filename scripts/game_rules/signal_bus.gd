@@ -9,6 +9,8 @@ signal respond_random_position_for_monster(position: Vector2)
 
 signal key_was_taken()
 
+signal game_ending(type: bool)
+
 
 #Добавить камеру в группу камер в скрипте камеры с помощью сигнала
 #Вызвать камеры с помощью сигнала в коде

@@ -23,7 +23,7 @@ z_index = -1
 position = Vector2(-108, -68)
 
 [node name="monster" parent="." instance=ExtResource("5_pbw6q")]
-position = Vector2(148, 101)
+position = Vector2(102, 93)
 
 [node name="Timer" type="Timer" parent="monster"]
 
@@ -76,6 +76,12 @@ position = Vector2(-108, -68)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_c01mt")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="monster/Timer" to="monster" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
