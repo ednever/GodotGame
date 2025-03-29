@@ -19,6 +19,7 @@ var  state = 0:
 @export var timer_to_change_world_state: Timer
 var timer_wait_time_for_state_change: float = 10
 var player_position: Vector2
+var monster_position: Vector2
 
 # В начале игры:
 # Устанавливается таймер
@@ -28,6 +29,7 @@ func _ready() -> void:
 	$Timer.start()
 	SignalBus.connect("change_world_state", change_state)
 	SignalBus.connect("respond_player_posiiton", update_player_position)
+	SignalBus.connect("respond_monster_posiiton", update_monster_position)
 
 # Меняет состояния мира на противоположные
 func change_state():
@@ -43,9 +45,6 @@ func _on_timer_timeout() -> void:
 
 func update_player_position(position):
 	player_position = position
-<<<<<<< Updated upstream
-	print(player_position)
-=======
 	print("Player pos: ", player_position)
 
 func update_monster_position(position):
@@ -70,4 +69,3 @@ func vector_counter() -> void:
 		# Создание нового вектора возле позиции игрока с учетом погрешности
 		var random_position_for_monster = player_position + random_offset   
 		SignalBus.emit_signal("respond_random_position_for_monster", random_position_for_monster)
->>>>>>> Stashed changes

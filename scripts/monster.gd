@@ -16,35 +16,30 @@ var direction = Vector2.ZERO
 # Таймер для обновления координат игрока для монстра
 var timer_wait_time: float = 1
 
-<<<<<<< Updated upstream
-=======
 var player_position_with_random: Vector2
 
 func update_player_position(position):
 	player_position_with_random = position
 	print("Pos with rand: ", player_position_with_random)
 
->>>>>>> Stashed changes
 func _ready():
 	randomize()
 	_choose_new_direction()
+	$Timer.wait_time = timer_wait_time
+	$Timer.start()
 	SignalBus.connect("respond_world_state", take_world_state)
 	SignalBus.connect("respond_random_position_for_monster", update_player_position)
 
-<<<<<<< Updated upstream
-=======
 
 func move_towards_target(delta: float):
 	var direction = (player_position_with_random - global_position).normalized()
-	velocity = direction * speed * delta
-	move_and_slide()
+
 
 func _on_timer_timeout() -> void:
 	if !world_state:
 		SignalBus.emit_signal("respond_monster_posiiton", global_position)
 		$Timer.start()
 
->>>>>>> Stashed changes
 func _physics_process(delta):
 	if world_state:
 		timer -= delta

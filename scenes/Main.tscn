@@ -1,16 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://o68o375akbbv"]
+[gd_scene load_steps=7 format=3 uid="uid://o68o375akbbv"]
 
-[ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://scenes/Player.tscn" id="1_0bbpv"]
-[ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://scenes/walls.tscn" id="3_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://b6p5lkmkuia1f" path="res://scenes/Key.tscn" id="4_rarhs"]
-[ext_resource type="PackedScene" uid="uid://hf4uhs4vteee" path="res://scenes/monster.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://Scenes/Player.tscn" id="1_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://Scenes/walls.tscn" id="3_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://b6p5lkmkuia1f" path="res://Scenes/Key.tscn" id="4_rarhs"]
+[ext_resource type="PackedScene" uid="uid://hf4uhs4vteee" path="res://Scenes/monster.tscn" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://c6mdkkepfcmxl" path="res://scripts/game_rules/game_manager.gd" id="5_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://cvylwmo65rbdu" path="res://Scenes/tilemap.tscn" id="6_v1gob"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(108, 68)
 
-[node name="monster_new" parent="." instance=ExtResource("5_pbw6q")]
-position = Vector2(281, 58)
+[node name="monster" parent="." instance=ExtResource("5_pbw6q")]
+position = Vector2(148, 101)
+
+[node name="Timer" type="Timer" parent="monster"]
 
 [node name="walls" parent="." instance=ExtResource("3_vcsgt")]
 position = Vector2(83, -73)
@@ -21,21 +24,21 @@ position = Vector2(235, 197)
 [node name="Timer" type="Timer" parent="Player"]
 
 [node name="Key" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(77, 42)
+position = Vector2(-5, 188)
 
 [node name="Key2" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(310, 34)
 
 [node name="Key3" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(254, 32)
+position = Vector2(-41, 94)
 
 [node name="Key4" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(320, 70)
+position = Vector2(378, 91)
 
 [node name="Key5" parent="." instance=ExtResource("4_rarhs")]
 light_mask = 15
 visibility_layer = 15
-position = Vector2(246, 73)
+position = Vector2(341, -12)
 
 [node name="Game_manager" type="Node" parent="." node_paths=PackedStringArray("timer_to_change_world_state")]
 script = ExtResource("5_vcsgt")
@@ -43,5 +46,12 @@ timer_to_change_world_state = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Game_manager"]
 
+[node name="Tilemap" parent="." instance=ExtResource("6_v1gob")]
+position = Vector2(-108, -68)
+
+[node name="Tilemap2" parent="." instance=ExtResource("6_v1gob")]
+position = Vector2(-108, -68)
+
+[connection signal="timeout" from="monster/Timer" to="monster" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Game_manager/Timer" to="Game_manager" method="_on_timer_timeout"]

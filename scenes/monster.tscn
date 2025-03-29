@@ -47,7 +47,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="monster_new" type="CharacterBody2D"]
+[node name="monster" type="CharacterBody2D"]
 light_mask = 4
 visibility_layer = 15
 collision_layer = 4
