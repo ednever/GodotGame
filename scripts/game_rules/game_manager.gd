@@ -20,8 +20,9 @@ var  state = 0:
 		if state == 0:
 			SignalBus.emit_signal("respond_world_state", false)			
 		else:
-			SignalBus.emit_signal("respond_world_state", true)			
-		
+			SignalBus.emit_signal("respond_world_state", true)
+
+
 @export var timer_to_change_world_state: Timer
 var timer_wait_time_for_state_change: float = 5
 var player_position: Vector2
@@ -39,6 +40,7 @@ func _ready() -> void:
 	SignalBus.connect("respond_player_posiiton", update_player_position)
 	SignalBus.connect("respond_monster_posiiton", update_monster_position)
 	SignalBus.connect("key_was_taken", take_keys)
+	SignalBus.connect("player_on_dead", death)
 
 # Меняет состояния мира на противоположные
 func change_state():
@@ -57,7 +59,6 @@ func _on_timer_timeout() -> void:
 
 func update_player_position(position):
 	player_position = position
-	print("Player pos: ", player_position)
 
 func update_monster_position(position):
 	monster_position = position
@@ -86,3 +87,7 @@ func vector_counter() -> void:
 func take_keys():
 	keys += 1
 	print(keys)
+	
+func death():
+	print("Player Died!")
+	queue_free()
