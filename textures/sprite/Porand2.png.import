@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sh2s45xmirfb"
-path="res://.godot/imported/Porand.png-ff5af332f5a91760b2f3df654be0e1b6.ctex"
+uid="uid://cbpphfdi3mmgw"
+path="res://.godot/imported/Porand2.png-141d71ccccfaa51ca89e81ae35704b56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sprite/Porand.png"
-dest_files=["res://.godot/imported/Porand.png-ff5af332f5a91760b2f3df654be0e1b6.ctex"]
+source_file="res://textures/sprite/Porand2.png"
+dest_files=["res://.godot/imported/Porand2.png-141d71ccccfaa51ca89e81ae35704b56.ctex"]
 
 [params]
 

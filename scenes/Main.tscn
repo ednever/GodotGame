@@ -19,6 +19,7 @@ source_geometry_group_name = &"navigation"
 position = Vector2(108, 68)
 
 [node name="background" parent="." instance=ExtResource("7_jw32o")]
+z_index = -1
 position = Vector2(-108, -68)
 
 [node name="monster" parent="." instance=ExtResource("5_pbw6q")]
@@ -37,7 +38,7 @@ position = Vector2(235, 197)
 [node name="Timer" type="Timer" parent="Player"]
 
 [node name="Key" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(-5, 188)
+position = Vector2(169, -10)
 
 [node name="Key2" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(310, 34)
@@ -73,6 +74,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(-108, -68)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_c01mt")
 
 [connection signal="timeout" from="monster/Timer" to="monster" method="_on_timer_timeout"]
