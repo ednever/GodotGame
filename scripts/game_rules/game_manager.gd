@@ -49,7 +49,6 @@ func _on_timer_timeout() -> void:
 
 func update_player_position(position):
 	player_position = position
-	print("Player pos: ", player_position)
 
 func update_monster_position(position):
 	monster_position = position

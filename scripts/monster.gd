@@ -23,7 +23,6 @@ var player_position_with_random: Vector2
 
 func update_player_position(position):
 	player_position_with_random = position
-	print("Pos with rand: ", player_position_with_random)
 
 func _ready():
 	randomize()
@@ -46,7 +45,6 @@ func _on_timer_timeout() -> void:
 		$Timer.start()
 
 func animate():
-	print(direction.x, world_state)
 	if direction.x > 0:
 		last_direction = 1
 	elif direction.x < 0:
