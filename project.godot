@@ -24,6 +24,10 @@ SignalBus="*res://scripts/game_rules/signal_bus.gd"
 window/size/viewport_width=720
 window/size/viewport_height=420
 
+[global_group]
+
+navigation=""
+
 [input]
 
 ui_right={

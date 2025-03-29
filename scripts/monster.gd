@@ -1,7 +1,8 @@
 extends CharacterBody2D
 @export var anim: AnimatedSprite2D
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
 
-var world_state: bool = true
+var world_state: bool
 
 # Получает состояние мира. True - Silence, False - Darkness
 func take_world_state(state: bool):
@@ -34,7 +35,8 @@ func _ready():
 
 
 func move_towards_target(delta: float):
-	var direction = (player_position_with_random - global_position).normalized()
+	nav.target_position = player_position_with_random
+	direction = (nav.get_next_path_position() - global_position).normalized()
 	velocity = direction * speed * delta
 	move_and_slide()
 
