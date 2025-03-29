@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d215c32hsosaw"]
+[gd_scene load_steps=6 format=3 uid="uid://d215c32hsosaw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_def3t"]
 normal = Vector2(0, 1)
@@ -12,6 +12,8 @@ distance = 1.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_exnah"]
 normal = Vector2(-1, 0)
 distance = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyhxx"]
 
 [node name="Walls" type="Node2D"]
 position = Vector2(193, -1)
@@ -39,3 +41,8 @@ position = Vector2(530, 205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rigth2D"]
 shape = SubResource("WorldBoundaryShape2D_exnah")
+
+[node name="col" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="col"]
+shape = SubResource("RectangleShape2D_eyhxx")
