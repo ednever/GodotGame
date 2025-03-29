@@ -46,6 +46,7 @@ func _on_timer_timeout() -> void:
 		$Timer.start()
 
 func animate():
+	print(direction.x, world_state)
 	if direction.x > 0:
 		last_direction = 1
 	elif direction.x < 0:
@@ -60,7 +61,10 @@ func animate():
 		anim.flip_h = last_direction < 0
 	
 
-func _physics_process(delta):	
+func _physics_process(delta):
+	
+	animate()  # Upload the animation
+		
 	if world_state:
 		timer -= delta
 		if timer <= 0:
@@ -70,8 +74,6 @@ func _physics_process(delta):
 		move_and_slide()  # No argument needed in Godot 4
 	if !world_state:
 		move_towards_target(delta)
-
-	animate()  # Upload the animation
 
 func _choose_new_direction():
 	# Pick a random angle between 0 and 360 degrees using deg_to_rad()
