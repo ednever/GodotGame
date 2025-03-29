@@ -46,7 +46,6 @@ func _on_timer_timeout() -> void:
 		$Timer.start()
 
 func animate():
-	print(direction.x, world_state)
 	if direction.x > 0:
 		last_direction = 1
 	elif direction.x < 0:

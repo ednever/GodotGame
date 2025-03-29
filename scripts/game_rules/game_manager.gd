@@ -77,8 +77,10 @@ func vector_counter() -> void:
 # Подбор ключей
 func take_keys():
 	keys += 1
-	print(keys)
-	
+	print(keys, " out of 5")
+	if keys == 5:
+		print("Player Win!")
+
 func death():
 	print("Player Died!")
 	queue_free()
