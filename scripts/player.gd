@@ -6,7 +6,7 @@ const RUN = 20000
 const SNEAK = 5000
 var last_direction = 1  # Default to facing right (1 for right, -1 for left)
 
-
+var self_pos: Vector2
 var world_state: bool
 var timer_wait_time: float = 2
 
@@ -14,11 +14,12 @@ func _ready() -> void:
 	$Timer.wait_time = timer_wait_time
 	$Timer.start()
 	SignalBus.connect("respond_world_state", take_world_state)
+	self_pos = global_position
 
 
 func _on_timer_timeout() -> void:
 	if world_state:
-		SignalBus.emit_signal("respond_player_posiiton", global_position)
+		SignalBus.emit_signal("respond_player_posiiton", self_pos)
 		$Timer.start()
 
 # Получает состояние мира. True - Silence для игрока, False - Darkness для игрока
@@ -35,6 +36,8 @@ func _physics_process(delta):
 		speed = RUN
 	if Input.is_action_pressed("Sneak"):
 		speed = SNEAK
+	elif direction != Vector2.ZERO:
+		self_pos = global_position
 	
 	if direction.x != 0:
 		last_direction = direction.x  # Store last horizontal movement direction
