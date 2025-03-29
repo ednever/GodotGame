@@ -1,45 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2u5yju41gpqm"]
+[gd_scene load_steps=3 format=3 uid="uid://d2u5yju41gpqm"]
 
 [ext_resource type="Script" uid="uid://b4w8a084j1ccf" path="res://scripts/death_screen.gd" id="1_8hps1"]
+[ext_resource type="Texture2D" uid="uid://ctm7kde87t5pv" path="res://textures/sprite/deathScreen.png" id="2_dwo6e"]
 
-[node name="Death_screen" type="Control" node_paths=PackedStringArray("lable", "timer", "col")]
+[node name="Death_screen" type="Control"]
+z_index = 2
 custom_minimum_size = Vector2(720, 420)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -357.0
-offset_bottom = -228.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8hps1")
-lable = NodePath("ColorRect/RichTextLabel")
-timer = NodePath("Timer")
-col = NodePath("ColorRect")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 1, 1)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.86739, 1.61545)
+texture = ExtResource("2_dwo6e")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "Your pc is dead
-This is gor texting values
------------------------------
-"
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 518.0
+offset_bottom = 520.0
+scale = Vector2(1.37932, 0.801826)
+flat = true
 
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.01
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
