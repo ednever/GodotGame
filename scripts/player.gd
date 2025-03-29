@@ -5,10 +5,20 @@ const SPEED = 10000
 const RUN = 20000
 const SNEAK = 5000
 var last_direction = 1  # Default to facing right (1 for right, -1 for left)
+
+
 var world_state: bool
+var timer_wait_time: float = 2
 
 func _ready() -> void:
+	$Timer.wait_time = timer_wait_time
+	$Timer.start()
 	SignalBus.connect("respond_world_state", take_world_state)
+
+
+func _on_timer_timeout() -> void:
+	SignalBus.emit_signal("respond_player_posiiton", global_position)
+	$Timer.start()
 
 # Получает состояние мира. True - Silence, False - Darkness
 func take_world_state(state: bool):
