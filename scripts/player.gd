@@ -17,12 +17,15 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	SignalBus.emit_signal("respond_player_posiiton", global_position)
-	$Timer.start()
+	if world_state:
+		SignalBus.emit_signal("respond_player_posiiton", global_position)
+		$Timer.start()
 
-# Получает состояние мира. True - Silence, False - Darkness
+# Получает состояние мира. True - Silence для игрока, False - Darkness для игрока
 func take_world_state(state: bool):
 	world_state = state
+	if world_state:
+		$Timer.start()
 
 func _physics_process(delta):
 	var speed = SPEED
