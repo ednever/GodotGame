@@ -5,3 +5,4 @@ signal change_world_state(state: int)
 
 signal respond_player_posiiton(position: Vector2)
 signal respond_monster_posiiton(position: Vector2)
+signal respond_random_position_for_monster(position: Vector2)
