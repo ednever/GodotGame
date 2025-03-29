@@ -66,10 +66,14 @@ Sneak={
 
 [layer_names]
 
-2d_render/layer_1="All"
-2d_render/layer_2="Player"
-2d_render/layer_3="Monster"
-2d_render/layer_4="Key"
+2d_render/layer_1="All (render layer)"
+2d_render/layer_2="Player (render layer)"
+2d_render/layer_3="Monster (render layer)"
+2d_render/layer_4="Key (render layer)"
+2d_physics/layer_1="all (physics layer)"
+2d_physics/layer_2="player (physics layer)"
+2d_physics/layer_3="monster (physics layer)"
+2d_physics/layer_4="key (physics layer)"
 
 [rendering]
 

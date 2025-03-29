@@ -48,7 +48,8 @@ animations = [{
 light_mask = 3
 visibility_layer = 13
 z_index = 5
-collision_mask = 3
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_ij6vw")
 anim = NodePath("PlayerAnimation")
 
