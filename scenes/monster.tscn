@@ -44,7 +44,7 @@ animations = [{
 
 [node name="Monster" type="Node2D"]
 light_mask = 4
-visibility_layer = 5
+visibility_layer = 7
 z_index = 4
 position = Vector2(0, 8)
 
@@ -52,6 +52,8 @@ position = Vector2(0, 8)
 light_mask = 4
 visibility_layer = 5
 z_index = 4
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_1cbnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
