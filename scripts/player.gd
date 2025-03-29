@@ -37,9 +37,9 @@ func take_world_state(state: bool):
 	world_state = state
 	if world_state:		
 		$Timer.start()
-		camera.zoom = Vector2(2, 2)
-	else:
 		camera.zoom = Vector2(4, 4)
+	else:
+		camera.zoom = Vector2(2, 2)
 
 
 func _physics_process(delta):
