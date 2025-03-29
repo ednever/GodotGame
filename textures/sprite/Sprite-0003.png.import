@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqf3sub12ln3r"
-path="res://.godot/imported/tileset_1.png-03765ac9f4737b122200b81207f1457f.ctex"
+uid="uid://c4mp3vkucjn5c"
+path="res://.godot/imported/Sprite-0003.png-62b59d38d0c0354da6d0d260975aa770.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tileset_1.png"
-dest_files=["res://.godot/imported/tileset_1.png-03765ac9f4737b122200b81207f1457f.ctex"]
+source_file="res://textures/sprite/Sprite-0003.png"
+dest_files=["res://.godot/imported/Sprite-0003.png-62b59d38d0c0354da6d0d260975aa770.ctex"]
 
 [params]
 
