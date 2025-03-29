@@ -100,6 +100,10 @@ shape = SubResource("CapsuleShape2D_kyqiw")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 720
+limit_bottom = 420
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
