@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2u5yju41gpqm"]
+[gd_scene load_steps=4 format=3 uid="uid://d2u5yju41gpqm"]
 
 [ext_resource type="Script" uid="uid://b4w8a084j1ccf" path="res://scripts/death_screen.gd" id="1_8hps1"]
 [ext_resource type="Texture2D" uid="uid://ctm7kde87t5pv" path="res://textures/sprite/deathScreen.png" id="2_dwo6e"]
+[ext_resource type="AudioStream" uid="uid://bgsblt1t6jtj8" path="res://sounds/8-bit-horror-noises-63944.mp3" id="3_mqh5l"]
 
-[node name="Death_screen" type="Control"]
+[node name="Death_screen" type="Control" node_paths=PackedStringArray("audio")]
 z_index = 2
 custom_minimum_size = Vector2(720, 420)
 layout_mode = 3
@@ -15,6 +16,7 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8hps1")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -31,4 +33,12 @@ offset_bottom = 520.0
 scale = Vector2(1.37932, 0.801826)
 flat = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mqh5l")
+pitch_scale = 0.9
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
