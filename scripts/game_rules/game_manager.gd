@@ -17,7 +17,7 @@ var  state = 0:
 			SignalBus.emit_signal("respond_world_state", true)
 		
 @export var timer_to_change_world_state: Timer
-var timer_wait_time_for_state_change: float = 10
+var timer_wait_time_for_state_change: float = 5
 var player_position: Vector2
 var monster_position: Vector2
 
