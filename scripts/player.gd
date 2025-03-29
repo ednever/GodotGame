@@ -1,8 +1,9 @@
 extends CharacterBody2D
 @export var anim: AnimatedSprite2D
+@export var camera: Camera2D
 
 const SPEED = 4000
-const RUN = 5000
+const RUN = 6000
 const SNEAK = 2000
 var last_direction = 1  # Default to facing right (1 for right, -1 for left)
 
@@ -25,8 +26,12 @@ func _on_timer_timeout() -> void:
 # Получает состояние мира. True - Silence для игрока, False - Darkness для игрока
 func take_world_state(state: bool):
 	world_state = state
-	if world_state:
+	if world_state:		
 		$Timer.start()
+		camera.zoom = Vector2(2, 2)
+	else:
+		camera.zoom = Vector2(4, 4)
+
 
 func _physics_process(delta):
 	var speed = SPEED
