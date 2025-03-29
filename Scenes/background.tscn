@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://mkoe2ines0ya"]
+
+[ext_resource type="Texture2D" uid="uid://sh2s45xmirfb" path="res://textures/sprite/Porand.png" id="1_oabld"]
+
+[node name="background" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Porand" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 3
+texture_repeat = 2
+position = Vector2(360, 210)
+texture = ExtResource("1_oabld")
+region_enabled = true
+region_rect = Rect2(0, 0, 720, 420)

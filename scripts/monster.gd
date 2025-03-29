@@ -6,7 +6,7 @@ var world_state: bool
 
 # Получает состояние мира. True - Silence, False - Darkness
 func take_world_state(state: bool):
-	world_state = !state
+	world_state = state
 	if !world_state:
 		$Timer.start()
 
@@ -21,6 +21,8 @@ var timer_wait_time: float = 1
 
 var player_position_with_random: Vector2
 
+var player = null
+
 func update_player_position(position):
 	player_position_with_random = position
 
@@ -31,7 +33,7 @@ func _ready():
 	$Timer.start()
 	SignalBus.connect("respond_world_state", take_world_state)
 	SignalBus.connect("respond_random_position_for_monster", update_player_position)
-
+	
 
 func move_towards_target(delta: float):
 	nav.target_position = player_position_with_random
@@ -71,12 +73,18 @@ func _physics_process(delta):
 	animate()  # Upload the animation
 		
 	if world_state:
-		timer -= delta
-		if timer <= 0:
-			_choose_new_direction()
-			
-		velocity = direction * speed * delta
-		move_and_slide()  # No argument needed in Godot 4
+		if player:
+			nav.target_position = player.global_position
+			direction = (nav.get_next_path_position() - global_position).normalized()
+			velocity = direction * speed * delta
+			move_and_slide()
+		else:
+			timer -= delta
+			if timer <= 0:
+				_choose_new_direction()
+				
+			velocity = direction * speed * delta
+			move_and_slide()  # No argument needed in Godot 4
 	if !world_state:
 		move_towards_target(delta)
 
@@ -85,3 +93,13 @@ func _choose_new_direction():
 	var angle = deg_to_rad(randi() % 360)
 	direction = Vector2(cos(angle), sin(angle)).normalized()
 	timer = change_direction_time
+
+
+func _on_monster_vision_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player = body
+
+
+func _on_monster_vision_2d_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		player = null
