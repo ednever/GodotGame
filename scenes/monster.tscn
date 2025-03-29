@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://hf4uhs4vteee"]
+[gd_scene load_steps=20 format=3 uid="uid://hf4uhs4vteee"]
 
 [ext_resource type="Script" uid="uid://dcxb87jupvmtp" path="res://scripts/monster.gd" id="1_4pflp"]
 [ext_resource type="Texture2D" uid="uid://d2ecekbl1o1r0" path="res://textures/sprite/monster_sprite.png" id="2_i44lo"]
+[ext_resource type="AudioStream" uid="uid://p4ou2i4c27a3" path="res://sounds/New Song (6).mp3" id="3_c47ug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cbnp"]
 radius = 4.0
@@ -129,7 +130,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_i44lo"]
 radius = 74.0068
 
-[node name="monster" type="CharacterBody2D" node_paths=PackedStringArray("anim") groups=["monster"]]
+[node name="monster" type="CharacterBody2D" node_paths=PackedStringArray("anim", "audio") groups=["monster"]]
 light_mask = 4
 visibility_layer = 15
 z_index = 4
@@ -137,6 +138,7 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_4pflp")
 anim = NodePath("AnimatedSprite2D")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
@@ -153,6 +155,13 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="monster_vision2D"]
 shape = SubResource("CircleShape2D_i44lo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c47ug")
+volume_db = 24.0
+pitch_scale = 1.01
+attenuation = 7.1
+bus = &"Effects"
 
 [connection signal="body_entered" from="monster_vision2D" to="." method="_on_monster_vision_2d_body_entered"]
 [connection signal="body_exited" from="monster_vision2D" to="." method="_on_monster_vision_2d_body_exited"]

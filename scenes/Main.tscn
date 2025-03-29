@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bmgqbj615sa16" path="res://scenes/Player.tscn" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://d215c32hsosaw" path="res://scenes/walls.tscn" id="3_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://b6p5lkmkuia1f" path="res://scenes/Key.tscn" id="4_rarhs"]
+[ext_resource type="PackedScene" uid="uid://b6p5lkmkuia1f" path="res://scenes/key.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://hf4uhs4vteee" path="res://scenes/monster.tscn" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://c6mdkkepfcmxl" path="res://scripts/game_rules/game_manager.gd" id="5_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://cvylwmo65rbdu" path="res://scenes/tilemap.tscn" id="6_v1gob"]
@@ -29,6 +29,8 @@ position = Vector2(102, 93)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="monster"]
 
+[node name="TimerForMusic" type="Timer" parent="monster"]
+
 [node name="walls" parent="." instance=ExtResource("3_vcsgt")]
 position = Vector2(83, -73)
 
@@ -36,6 +38,8 @@ position = Vector2(83, -73)
 position = Vector2(235, 197)
 
 [node name="Timer" type="Timer" parent="Player"]
+
+[node name="TimerForMusic" type="Timer" parent="Player"]
 
 [node name="Key" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(169, -10)
@@ -63,6 +67,7 @@ timer_to_change_world_state = NodePath("Timer")
 
 [node name="Black" type="ColorRect" parent="Game_manager"]
 visible = false
+z_index = 4
 offset_left = 13.0
 offset_top = 13.0
 offset_right = 708.0
@@ -84,5 +89,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [connection signal="timeout" from="monster/Timer" to="monster" method="_on_timer_timeout"]
+[connection signal="timeout" from="monster/TimerForMusic" to="monster" method="_on_timer_for_music_timeout"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/TimerForMusic" to="Player" method="_on_timer_for_music_timeout"]
 [connection signal="timeout" from="Game_manager/Timer" to="Game_manager" method="_on_timer_timeout"]
