@@ -12,10 +12,19 @@ var change_direction_time = 2.0
 var timer = 0.0
 var direction = Vector2.ZERO
 
+var timer_wait_time: float = 2
+
 func _ready():
 	randomize()
 	_choose_new_direction()
+	$Timer.wait_time = timer_wait_time
+	$Timer.start()
 	SignalBus.connect("respond_world_state", take_world_state)
+
+
+func _on_timer_timeout() -> void:
+	SignalBus.emit_signal("respond_monster_posiiton", global_position)
+	$Timer.start()
 
 func _physics_process(delta):
 	timer -= delta

@@ -9,8 +9,10 @@
 [node name="Main" type="Node2D"]
 position = Vector2(108, 68)
 
-[node name="monster_new" parent="." instance=ExtResource("5_pbw6q")]
+[node name="monster" parent="." instance=ExtResource("5_pbw6q")]
 position = Vector2(281, 58)
+
+[node name="Timer" type="Timer" parent="monster"]
 
 [node name="walls" parent="." instance=ExtResource("3_vcsgt")]
 position = Vector2(83, -73)
@@ -43,5 +45,6 @@ timer_to_change_world_state = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Game_manager"]
 
+[connection signal="timeout" from="monster/Timer" to="monster" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Game_manager/Timer" to="Game_manager" method="_on_timer_timeout"]
