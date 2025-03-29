@@ -1,5 +1,11 @@
 extends Node
 
+@export var color_rect: ColorRect
+
+
+# Изменить текстуру персонажа в темноте
+# Изменить текстуру монстра в темноте
+
 # Эти состояния применяются для игрока, для монстра они обратные
 enum State {
 	DARKNESS = 0, 
@@ -12,7 +18,7 @@ var  state = 0:
 	set(value):
 		state = value
 		if state == 0:
-			SignalBus.emit_signal("respond_world_state", false)
+			SignalBus.emit_signal("respond_world_state", false)			
 		else:
 			SignalBus.emit_signal("respond_world_state", true)
 
@@ -22,6 +28,7 @@ var timer_wait_time_for_state_change: float = 5
 var player_position: Vector2
 var monster_position: Vector2
 var keys: int
+var player_camera: Camera2D
 
 # В начале игры:
 # Устанавливается таймер
@@ -37,11 +44,14 @@ func _ready() -> void:
 
 # Меняет состояния мира на противоположные
 func change_state():
-	if state == 0:
+	if state == 0:	
+		color_rect.visible = true
+
 		state = 1
 	else:
+		color_rect.visible = false
 		state = 0
-
+	
 # Когда таймер заканчивается, состояние мира меняется, таймер начинается заново
 func _on_timer_timeout() -> void:
 	SignalBus.emit_signal("change_world_state")
