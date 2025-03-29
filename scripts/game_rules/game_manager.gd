@@ -18,6 +18,7 @@ var  state = 0:
 		
 @export var timer_to_change_world_state: Timer
 var timer_wait_time: float = 2
+var player_position: Vector2
 
 # В начале игры:
 # Устанавливается таймер
@@ -26,6 +27,7 @@ func _ready() -> void:
 	$Timer.wait_time = timer_wait_time
 	$Timer.start()
 	SignalBus.connect("change_world_state", change_state)
+	SignalBus.connect("respond_player_posiiton", update_player_position)
 
 # Меняет состояния мира на противоположные
 func change_state():
@@ -38,4 +40,7 @@ func change_state():
 func _on_timer_timeout() -> void:
 	SignalBus.emit_signal("change_world_state")
 	$Timer.start()
-	print(state)
+
+func update_player_position(position):
+	player_position = position
+	print(player_position)
