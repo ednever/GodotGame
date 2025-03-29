@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://mkoe2ines0ya"]
 
+
 [ext_resource type="Texture2D" uid="uid://cbpphfdi3mmgw" path="res://textures/sprite/Porand2.png" id="1_oabld"]
+
 
 [node name="background" type="Node2D"]
 
