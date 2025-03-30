@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4p4j5y83m5pv"]
 
 [ext_resource type="Script" uid="uid://cvn365blftlg0" path="res://scripts/mainMenu.gd" id="1_yqorp"]
-[ext_resource type="Texture2D" uid="uid://dik40w20vmyxs" path="res://textures/sprite/city.jpg" id="2_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://devm6rt1inuln" path="res://textures/sprite/bg2.png" id="2_8saeu"]
 [ext_resource type="AudioStream" uid="uid://btgd1ury7gee0" path="res://sounds/pianino_obosralsya.wav" id="3_2wh52"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykhv"]
@@ -46,10 +46,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1015.0
+offset_bottom = 573.0
 scale = Vector2(0.708078, 0.721374)
-texture = ExtResource("2_0ykhv")
+texture = ExtResource("2_8saeu")
 
 [node name="Play" type="Button" parent="."]
 z_index = 2

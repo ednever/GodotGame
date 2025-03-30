@@ -62,7 +62,6 @@ func update_player_position(position):
 
 func update_monster_position(position):
 	monster_position = position
-	print("State: ", state)
 	vector_counter()
 
 # Функция принимает векторы монстра и игрока и отсылает монстру рандомную координату, куда ему стоит идти
@@ -86,7 +85,6 @@ func vector_counter() -> void:
 # Подбор ключей
 func take_keys():
 	keys += 1
-	print(keys, " out of 5")
 	if keys == 5:
 		#SignalBus.emit_signal("game_ending", true)
 		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
