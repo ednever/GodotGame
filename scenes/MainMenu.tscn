@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://btgd1ury7gee0" path="res://sounds/pianino_obosralsya.wav" id="3_2wh52"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykhv"]
-bg_color = Color(1, 0, 0, 0.392157)
+bg_color = Color(0.534439, 0.790807, 0.981331, 0.392157)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l72w3"]
-bg_color = Color(1, 0, 0, 0.392157)
+bg_color = Color(0.533333, 0.792157, 0.980392, 0.392157)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -48,6 +48,7 @@ z_index = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.708078, 0.721374)
 texture = ExtResource("2_0ykhv")
 
 [node name="Play" type="Button" parent="."]
