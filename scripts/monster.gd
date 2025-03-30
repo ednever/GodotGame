@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var anim: AnimatedSprite2D
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
-
+@export var audio: AudioStreamPlayer2D
 var world_state: bool
 
 # Получает состояние мира. True - Silence, False - Darkness
@@ -33,9 +33,10 @@ func _ready():
 	_choose_new_direction()
 	$Timer.wait_time = timer_wait_time
 	$Timer.start()
+	$TimerForMusic.start()
+	$TimerForMusic.wait_time = 0.8
 	SignalBus.connect("respond_world_state", take_world_state)
 	SignalBus.connect("respond_random_position_for_monster", update_player_position)
-	
 
 func move_towards_target(delta: float):
 	nav.target_position = player_position_with_random
@@ -87,6 +88,8 @@ func _physics_process(delta):
 				
 			velocity = direction * speed * delta
 			move_and_slide()  # No argument needed in Godot 4
+		audio.position = global_position
+		
 	if !world_state:
 		move_towards_target(delta)
 
@@ -105,3 +108,8 @@ func _on_monster_vision_2d_body_entered(body: Node2D) -> void:
 func _on_monster_vision_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		player = null
+
+
+func _on_timer_for_music_timeout() -> void:
+	if world_state:
+		audio.play()
