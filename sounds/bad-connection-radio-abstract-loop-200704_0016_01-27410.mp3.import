@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://75qa02pbrrvs"
-path="res://.godot/imported/bad-connection-radio-abstract-loop-200704_0016_01-27410.mp3-036793e76d10174fdc6f34a3f34b0f7f.mp3str"
+path="res://.godot/imported/bad-connection-radio-abstract-loop-200704_0016_01-27410.mp3-54db10c10c629dae79bbfe1e4a658735.mp3str"
 
 [deps]
 
-source_file="res://sounds/bad-connection-radio-abstract-loop-200704_0016_01-27410.mp3"
-dest_files=["res://.godot/imported/bad-connection-radio-abstract-loop-200704_0016_01-27410.mp3-036793e76d10174fdc6f34a3f34b0f7f.mp3str"]
+source_file="res://Sounds/bad-connection-radio-abstract-loop-200704_0016_01-27410.mp3"
+dest_files=["res://.godot/imported/bad-connection-radio-abstract-loop-200704_0016_01-27410.mp3-54db10c10c629dae79bbfe1e4a658735.mp3str"]
 
 [params]
 

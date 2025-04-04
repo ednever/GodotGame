@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bpefjp3s2sodk"
-path="res://.godot/imported/halloween-horror-sound-lurking-monster-145070.mp3-fff1f5e6862739396679dde22eb3ff05.mp3str"
+path="res://.godot/imported/halloween-horror-sound-lurking-monster-145070.mp3-f94492ab1efacbd73da98e9b8ddf25e7.mp3str"
 
 [deps]
 
-source_file="res://sounds/halloween-horror-sound-lurking-monster-145070.mp3"
-dest_files=["res://.godot/imported/halloween-horror-sound-lurking-monster-145070.mp3-fff1f5e6862739396679dde22eb3ff05.mp3str"]
+source_file="res://Sounds/halloween-horror-sound-lurking-monster-145070.mp3"
+dest_files=["res://.godot/imported/halloween-horror-sound-lurking-monster-145070.mp3-f94492ab1efacbd73da98e9b8ddf25e7.mp3str"]
 
 [params]
 

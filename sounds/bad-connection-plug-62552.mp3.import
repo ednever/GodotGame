@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c1dyg4rpnurnm"
-path="res://.godot/imported/bad-connection-plug-62552.mp3-549a06445c70527c606caba87fb86210.mp3str"
+path="res://.godot/imported/bad-connection-plug-62552.mp3-f4023eea54a46980d8e2463812ed89e8.mp3str"
 
 [deps]
 
-source_file="res://sounds/bad-connection-plug-62552.mp3"
-dest_files=["res://.godot/imported/bad-connection-plug-62552.mp3-549a06445c70527c606caba87fb86210.mp3str"]
+source_file="res://Sounds/bad-connection-plug-62552.mp3"
+dest_files=["res://.godot/imported/bad-connection-plug-62552.mp3-f4023eea54a46980d8e2463812ed89e8.mp3str"]
 
 [params]
 

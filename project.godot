@@ -10,19 +10,21 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="DedMani"
 run/main_scene="uid://b4p4j5y83m5pv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://scripts/game_rules/signal_bus.gd"
+SignalBus="*res://Scripts/GameRules/signalBus.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=420
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [global_group]
 

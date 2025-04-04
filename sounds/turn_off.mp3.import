@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://be0t8edaxr0er"
-path="res://.godot/imported/turn_off.mp3-aa528a7be6efe06399d573a4746497be.mp3str"
+path="res://.godot/imported/turn_off.mp3-953cad1ed78225a623576bfbcc82c7f7.mp3str"
 
 [deps]
 
-source_file="res://sounds/turn_off.mp3"
-dest_files=["res://.godot/imported/turn_off.mp3-aa528a7be6efe06399d573a4746497be.mp3str"]
+source_file="res://Sounds/turn_off.mp3"
+dest_files=["res://.godot/imported/turn_off.mp3-953cad1ed78225a623576bfbcc82c7f7.mp3str"]
 
 [params]
 

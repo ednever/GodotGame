@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4p4j5y83m5pv"]
+
+[ext_resource type="Script" uid="uid://cvn365blftlg0" path="res://Scripts/Screens/mainMenu.gd" id="1_lk1kf"]
+[ext_resource type="Texture2D" uid="uid://devm6rt1inuln" path="res://Textures/Images/MenuBackground.png" id="2_u2th1"]
+[ext_resource type="AudioStream" uid="uid://btgd1ury7gee0" path="res://Sounds/pianino_obosralsya.wav" id="3_phm8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykhv"]
+bg_color = Color(0.534439, 0.790807, 0.981331, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow34m"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l72w3"]
+bg_color = Color(0.533333, 0.792157, 0.980392, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh52"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Control" type="Control" node_paths=PackedStringArray("audio")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lk1kf")
+audio = NodePath("AudioStreamPlayer2D")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_u2th1")
+expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_phm8w")
+volume_db = -20.0
+pitch_scale = 0.7
+autoplay = true
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 214.0
+offset_right = 1744.0
+offset_bottom = 934.0
+scale = Vector2(0.286265, 0.356539)
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+z_index = 2
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 150
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ykhv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ow34m")
+text = "New Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+z_index = 2
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 150
+theme_override_styles/hover = SubResource("StyleBoxFlat_l72w3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2wh52")
+text = "Exit"
+
+[connection signal="timeout" from="AudioStreamPlayer2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

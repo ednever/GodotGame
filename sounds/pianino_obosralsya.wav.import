@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://btgd1ury7gee0"
-path="res://.godot/imported/pianino_obosralsya.wav-f4d01caa039eccf217f9f6e36af088d8.sample"
+path="res://.godot/imported/pianino_obosralsya.wav-14e9b8d85e4e8a3b4ecf9c1566d5e259.sample"
 
 [deps]
 
-source_file="res://sounds/pianino_obosralsya.wav"
-dest_files=["res://.godot/imported/pianino_obosralsya.wav-f4d01caa039eccf217f9f6e36af088d8.sample"]
+source_file="res://Sounds/pianino_obosralsya.wav"
+dest_files=["res://.godot/imported/pianino_obosralsya.wav-14e9b8d85e4e8a3b4ecf9c1566d5e259.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://diigftgkhl4tx"
-path="res://.godot/imported/strashno.wav-9dca845492b71a1d5eb16d6d1b4154d7.sample"
+path="res://.godot/imported/strashno.wav-197237687064307cf5918cc30490c24b.sample"
 
 [deps]
 
-source_file="res://sounds/strashno.wav"
-dest_files=["res://.godot/imported/strashno.wav-9dca845492b71a1d5eb16d6d1b4154d7.sample"]
+source_file="res://Sounds/strashno.wav"
+dest_files=["res://.godot/imported/strashno.wav-197237687064307cf5918cc30490c24b.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cgxkvrmx7fpt6"
-path="res://.godot/imported/submarine-sonar-38243.mp3-d0f0ed3fe9d09c530549c11d64eb389c.mp3str"
+path="res://.godot/imported/submarine-sonar-38243.mp3-52d8e49e46192240ffa70baeb68c1191.mp3str"
 
 [deps]
 
-source_file="res://sounds/submarine-sonar-38243.mp3"
-dest_files=["res://.godot/imported/submarine-sonar-38243.mp3-d0f0ed3fe9d09c530549c11d64eb389c.mp3str"]
+source_file="res://Sounds/submarine-sonar-38243.mp3"
+dest_files=["res://.godot/imported/submarine-sonar-38243.mp3-52d8e49e46192240ffa70baeb68c1191.mp3str"]
 
 [params]
 

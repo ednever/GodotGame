@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bgsblt1t6jtj8"
-path="res://.godot/imported/8-bit-horror-noises-63944.mp3-923e2e9684fd648db519b280b96ed488.mp3str"
+path="res://.godot/imported/8-bit-horror-noises-63944.mp3-be4322f29ba6d2b3af95d8e421b5fb6a.mp3str"
 
 [deps]
 
-source_file="res://sounds/8-bit-horror-noises-63944.mp3"
-dest_files=["res://.godot/imported/8-bit-horror-noises-63944.mp3-923e2e9684fd648db519b280b96ed488.mp3str"]
+source_file="res://Sounds/8-bit-horror-noises-63944.mp3"
+dest_files=["res://.godot/imported/8-bit-horror-noises-63944.mp3-be4322f29ba6d2b3af95d8e421b5fb6a.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dp4ivu2i0hkih"
-path="res://.godot/imported/mixkit-game-ball-tap-2073.wav-49b06ec8fc0b4282956edc0835e1911c.sample"
+path="res://.godot/imported/mixkit-game-ball-tap-2073.wav-2a5ed49a0336dc40002c78a41e3a35ee.sample"
 
 [deps]
 
-source_file="res://sounds/mixkit-game-ball-tap-2073.wav"
-dest_files=["res://.godot/imported/mixkit-game-ball-tap-2073.wav-49b06ec8fc0b4282956edc0835e1911c.sample"]
+source_file="res://Sounds/mixkit-game-ball-tap-2073.wav"
+dest_files=["res://.godot/imported/mixkit-game-ball-tap-2073.wav-2a5ed49a0336dc40002c78a41e3a35ee.sample"]
 
 [params]
 
